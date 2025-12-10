@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: microservicio-usuario-kotlin
+    runtime: java
+    buildCommand: "./mvnw clean package -DskipTests"
+    startCommand: "java -jar target/*.jar"
+    rootDir: "./"
