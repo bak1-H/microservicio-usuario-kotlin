@@ -6,6 +6,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @RestController
 @RequestMapping("/api/usuarios")
@@ -27,4 +30,10 @@ public class UsuarioController {
     public Usuario login(@RequestBody Usuario usuario) {
         return service.login(usuario.getEmail(), usuario.getPassword());
     }
+
+    @GetMapping("/listar")
+    public Iterable<Usuario> listarUsuarios() {
+        return service.listarUsuarios();
+    }
+    
 }

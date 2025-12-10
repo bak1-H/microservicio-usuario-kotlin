@@ -22,4 +22,8 @@ public class UsuarioService {
                 .filter(u -> u.getPassword().equals(password))
                 .orElse(null);
     }
+
+    public Iterable<Usuario> listarUsuarios() {
+        return repo.findAll();
+    }
 }
