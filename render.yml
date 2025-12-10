@@ -1,7 +1,19 @@
 services:
   - type: web
     name: microservicio-usuario-kotlin
-    runtime: java
+    env: java
+    plan: free
     buildCommand: "./mvnw clean package -DskipTests"
     startCommand: "java -jar target/*.jar"
     rootDir: "./"
+    envVars:
+      - key: SPRING_DATASOURCE_URL
+        value: jdbc:postgresql://dpg-d4sc3hbe5dus73ahuu80-a.oregon-postgres.render.com:5432/basekotlin
+      - key: SPRING_DATASOURCE_USERNAME
+        value: basekotlin_user
+      - key: SPRING_DATASOURCE_PASSWORD
+        value: Aq2YJE1VXA3iId5bJg2BBLA89oLIXGSy
+      - key: SPRING_JPA_HIBERNATE_DDL_AUTO
+        value: update
+      - key: SPRING_DATASOURCE_HIKARI_DATA_SOURCE_PROPERTIES_SSLMODE
+        value: require
