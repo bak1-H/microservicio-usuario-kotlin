@@ -26,4 +26,10 @@ public class UsuarioService {
     public Iterable<Usuario> listarUsuarios() {
         return repo.findAll();
     }
+
+    public Usuario findByEmailAndPassword(String email, String password) {
+        return repo.findByEmail(email)
+                .filter(u -> u.getPassword().equals(password))
+                .orElse(null);
+    }
 }
