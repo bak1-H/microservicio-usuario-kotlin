@@ -29,17 +29,13 @@ public class UsuarioController {
         return service.registrar(usuario);
     }
 
-    @PostMapping("/login")
-    public Usuario login(@RequestBody Usuario usuario) {
-        return service.login(usuario.getEmail(), usuario.getPassword());
-    }
 
     @GetMapping("/listar")
     public Iterable<Usuario> listarUsuarios() {
         return service.listarUsuarios();
     }
     
-    @GetMapping("/usuario/login")
+    @GetMapping("/login")
     public ResponseEntity<Usuario> loginGET(
             @RequestParam String email,
             @RequestParam String password) {
